@@ -23,6 +23,41 @@ export const Route = createFileRoute("/services")({
         content:
           "PMC, highway engineering, infrastructure and building consultancy services.",
       },
+      {
+        name: "keywords",
+        content:
+          "Project Management Consultancy, PMC Services, Construction Management, Highway Consultancy, Infrastructure Consultancy, Building Consultancy, QA QC, Quantity Surveying, Contract Management, Project Planning, Engineering Consultancy, Road Construction, Maharashtra, India",
+      },
+      { name: "robots", content: "index, follow" },
+      { name: "googlebot", content: "index, follow" },
+      { property: "og:type", content: "website" },
+      {
+        property: "og:url",
+        content: "https://milestoneconsultancy.in/services",
+      },
+      {
+        property: "og:image",
+        content: "https://milestoneconsultancy.in/milestone-logo.jpeg",
+      },
+      { property: "og:site_name", content: company.name },
+      { property: "og:locale", content: "en_IN" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: `Services | ${company.name}` },
+      {
+        name: "twitter:description",
+        content:
+          "PMC, highway engineering, infrastructure and building consultancy services.",
+      },
+      {
+        name: "twitter:image",
+        content: "https://milestoneconsultancy.in/milestone-logo.jpeg",
+      },
+    ],
+    links: [
+      {
+        rel: "canonical",
+        href: "https://milestoneconsultancy.in/services",
+      },
     ],
   }),
   component: ServicesPage,

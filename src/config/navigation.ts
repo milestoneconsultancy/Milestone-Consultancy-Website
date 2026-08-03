@@ -1,6 +1,9 @@
+// src/config/navigation.ts
 export const primaryNav = [
-  { label: "Home", to: "/" },
-  { label: "About", to: "/about" },
-  { label: "Services", to: "/services" },
-  { label: "Contact", to: "/contact" },
-] as const;
+  { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
+  { to: "/services", label: "Services" },
+  { to: "/projects", label: "Projects" }, // ✅ New
+  { to: "/contact", label: "Contact" },
+  { to: "/employee-login", label: "👤 Employee Login" },
+];

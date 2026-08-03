@@ -35,6 +35,62 @@ export const Route = createFileRoute("/")({
         content:
           "Milestone Consultancy is an Indian Project Management Consultancy delivering highway, infrastructure and building projects with engineering precision.",
       },
+      {
+        name: "keywords",
+        content:
+          "Project Management Consultancy, PMC, Construction Management, Highway Consultancy, Infrastructure Consultancy, Road Construction, Engineering Consultancy, DPR, Quantity Surveying, Maharashtra, India",
+      },
+      {
+        name: "robots",
+        content: "index, follow",
+      },
+      {
+        name: "googlebot",
+        content: "index, follow",
+      },
+      {
+        property: "og:type",
+        content: "website",
+      },
+      {
+        property: "og:url",
+        content: "https://milestoneconsultancy.in",
+      },
+      {
+        property: "og:image",
+        content: "https://milestoneconsultancy.in/milestone-logo.jpeg",
+      },
+      {
+        property: "og:site_name",
+        content: company.name,
+      },
+      {
+        property: "og:locale",
+        content: "en_IN",
+      },
+      {
+        name: "twitter:card",
+        content: "summary_large_image",
+      },
+      {
+        name: "twitter:title",
+        content: `${company.name} | ${company.tagline}`,
+      },
+      {
+        name: "twitter:description",
+        content:
+          "Milestone Consultancy is an Indian Project Management Consultancy delivering highway, infrastructure and building projects with engineering precision.",
+      },
+      {
+        name: "twitter:image",
+        content: "https://milestoneconsultancy.in/milestone-logo.jpeg",
+      },
+    ],
+    links: [
+      {
+        rel: "canonical",
+        href: "https://milestoneconsultancy.in",
+      },
     ],
   }),
   component: HomePage,

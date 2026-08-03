@@ -4,7 +4,7 @@
  */
 export const company = {
   name: "Milestone Consultancy",
-  legalName: "Milestone Consultancy LLP",
+  legalName: "Milestone Consultancy",
   tagline: "Engineering Tomorrow. Delivering Excellence.",
   shortDescription:
     "An Indian Project Management Consultancy delivering highway, infrastructure and building projects with engineering precision.",

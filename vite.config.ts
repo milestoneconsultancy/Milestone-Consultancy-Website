@@ -10,12 +10,22 @@ export default defineConfig({
   tanstackStart: {
     server: { entry: "server" },
   },
-  // ✅ हे सगळे Remove करा - फक्त basic config ठेवा
   vite: {
     build: {
       outDir: "dist",
       emptyOutDir: true,
     },
     publicDir: "public",
+    // ✅ Proxy Configuration
+    server: {
+      proxy: {
+        '/api': {
+          target: 'https://script.google.com/macros/s/AKfycbwsiGCEACppsej0TI4-JGvCMtCYXhxvzNl9G2z0QNXMcZR9vAfAqTbeQ5Akij1L4pRE/exec',
+          changeOrigin: true,
+          rewrite: (path) => path.replace(/^\/api/, ''),
+          secure: false,
+        },
+      },
+    },
   },
 });

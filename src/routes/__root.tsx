@@ -12,7 +12,6 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 
 import appCss from "../styles.css?url";
-import { reportLovableError } from "../lib/lovable-error-reporting";
 import { company } from "@/config/company";
 import { WhatsAppButton } from "@/components/ui/whatsapp-button";
 
@@ -45,9 +44,6 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
-  useEffect(() => {
-    reportLovableError(error, { boundary: "tanstack_root_error_component" });
-  }, [error]);
 
   return (
     <div className="flex min-h-dvh items-center justify-center bg-background px-4">
@@ -82,6 +78,8 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 
 const siteTitle = `${company.name} | ${company.tagline}`;
 const siteDescription = company.shortDescription;
+const siteUrl = "https://milestoneconsultancy.in";
+const siteImage = "https://milestoneconsultancy.in/milestone-logo.jpeg";
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
@@ -92,22 +90,30 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "description", content: siteDescription },
       { name: "author", content: company.name },
       { name: "theme-color", content: "#0B2D5B" },
+      { name: "robots", content: "index, follow" },
+      { name: "googlebot", content: "index, follow" },
+      { name: "keywords", content: "Project Management Consultancy, PMC, Construction Management, Highway Consultancy, Road Construction, Infrastructure Consultancy, Engineering Consultancy, DPR, Quantity Surveying, Project Planning, Maharashtra, India" },
+      { name: "application-name", content: company.name },
+      { name: "referrer", content: "origin" },
+      { name: "creator", content: company.name },
+      { name: "publisher", content: company.name },
+      { name: "format-detection", content: "telephone=no" },
       { property: "og:title", content: siteTitle },
       { property: "og:description", content: siteDescription },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: siteUrl },
       { property: "og:site_name", content: company.name },
+      { property: "og:locale", content: "en_IN" },
+      { property: "og:image", content: siteImage },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: siteTitle },
       { name: "twitter:description", content: siteDescription },
-      { title: "Lovable App" },
-      { property: "og:title", content: "Lovable App" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "description", content: "Milestone Consultancy is an Indian Project Management Consultancy delivering highway, infrastructure and building projects with engineering precision." },
-      { property: "og:description", content: "Milestone Consultancy is an Indian Project Management Consultancy delivering highway, infrastructure and building projects with engineering precision." },
-      { name: "twitter:description", content: "Milestone Consultancy is an Indian Project Management Consultancy delivering highway, infrastructure and building projects with engineering precision." },
+      { name: "twitter:image", content: siteImage },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
+      { rel: "canonical", href: siteUrl },
+      { rel: "icon", href: "/favicon.ico" },
       { rel: "apple-touch-icon", href: company.brand.logoSrc },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
@@ -122,12 +128,39 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     scripts: [
       {
+        src: "https://www.googletagmanager.com/gtag/js?id=G-QL19PTRRR6",
+        async: true,
+      },
+      {
+        children: `
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-QL19PTRRR6');
+        `,
+      },
+      {
+        children: `
+          (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);
+            t.async=1;
+            t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];
+            y.parentNode.insertBefore(t,y);
+          })(window, document, "clarity", "script", "xwleu3732v");
+        `,
+      },
+      {
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "ProfessionalService",
           name: company.name,
           description: siteDescription,
+          url: siteUrl,
+          logo: siteImage,
+          image: siteImage,
           telephone: company.contact.phone,
           email: company.contact.email,
           address: {
@@ -137,7 +170,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
             postalCode: "421301",
             addressCountry: "IN",
           },
+          priceRange: "₹₹",
           areaServed: "IN",
+          sameAs: [],
         }),
       },
     ],

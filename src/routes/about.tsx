@@ -21,6 +21,32 @@ export const Route = createFileRoute("/about")({
         content:
           "Mission, vision, values and engineering philosophy of Milestone Consultancy.",
       },
+      {
+        name: "keywords",
+        content:
+          "About Milestone Consultancy, Project Management Consultancy, Construction Management, Highway Consultancy, Infrastructure Consultancy, Engineering Consultancy, Road Construction, Maharashtra, India",
+      },
+      { name: "robots", content: "index, follow" },
+      { name: "googlebot", content: "index, follow" },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://milestoneconsultancy.in/about" },
+      { property: "og:image", content: "https://milestoneconsultancy.in/milestone-logo.jpeg" },
+      { property: "og:site_name", content: company.name },
+      { property: "og:locale", content: "en_IN" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: `About ${company.name}` },
+      {
+        name: "twitter:description",
+        content:
+          "Mission, vision, values and engineering philosophy of Milestone Consultancy.",
+      },
+      { name: "twitter:image", content: "https://milestoneconsultancy.in/milestone-logo.jpeg" },
+    ],
+    links: [
+      {
+        rel: "canonical",
+        href: "https://milestoneconsultancy.in/about",
+      },
     ],
   }),
   component: AboutPage,

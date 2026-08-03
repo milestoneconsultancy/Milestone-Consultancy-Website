@@ -27,6 +27,31 @@ export const Route = createFileRoute("/contact")({
         property: "og:description",
         content: "Reach the Milestone Consultancy team.",
       },
+      {
+        name: "keywords",
+        content:
+          "Contact Milestone Consultancy, Project Management Consultancy, Construction Consultancy, Highway Consultancy, Infrastructure Consultancy, Engineering Consultancy, Road Construction, PMC, Kalyan, Maharashtra, India",
+      },
+      { name: "robots", content: "index, follow" },
+      { name: "googlebot", content: "index, follow" },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://milestoneconsultancy.in/contact" },
+      { property: "og:image", content: "https://milestoneconsultancy.in/milestone-logo.jpeg" },
+      { property: "og:site_name", content: company.name },
+      { property: "og:locale", content: "en_IN" },
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: `Contact | ${company.name}` },
+      {
+        name: "twitter:description",
+        content: "Reach the Milestone Consultancy team.",
+      },
+      { name: "twitter:image", content: "https://milestoneconsultancy.in/milestone-logo.jpeg" },
+    ],
+    links: [
+      {
+        rel: "canonical",
+        href: "https://milestoneconsultancy.in/contact",
+      },
     ],
   }),
   component: ContactPage,
@@ -67,7 +92,7 @@ function ContactPage() {
       // Send email using EmailJS
       await emailjs.send(
         import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        import.meta.env.VITE_EMAILJS_CONTACT_TEMPLATE_ID,
         templateParams,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
