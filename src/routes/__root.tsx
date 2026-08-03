@@ -85,14 +85,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
   head: () => ({
     meta: [
       { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
+      { 
+        name: "viewport", 
+        content: "width=device-width, initial-scale=1, viewport-fit=cover" 
+      },
       { title: siteTitle },
       { name: "description", content: siteDescription },
       { name: "author", content: company.name },
       { name: "theme-color", content: "#0B2D5B" },
       { name: "robots", content: "index, follow" },
       { name: "googlebot", content: "index, follow" },
-      { name: "keywords", content: "Project Management Consultancy, PMC, Construction Management, Highway Consultancy, Road Construction, Infrastructure Consultancy, Engineering Consultancy, DPR, Quantity Surveying, Project Planning, Maharashtra, India" },
+      { 
+        name: "keywords", 
+        content: "Project Management Consultancy, PMC, Construction Management, Highway Consultancy, Road Construction, Infrastructure Consultancy, Engineering Consultancy, DPR, Quantity Surveying, Project Planning, Maharashtra, India" 
+      },
       { name: "application-name", content: company.name },
       { name: "referrer", content: "origin" },
       { name: "creator", content: company.name },
@@ -105,16 +111,55 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: company.name },
       { property: "og:locale", content: "en_IN" },
       { property: "og:image", content: siteImage },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: `${company.name} - Project Management Consultancy` },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: siteTitle },
       { name: "twitter:description", content: siteDescription },
       { name: "twitter:image", content: siteImage },
+      { name: "twitter:image:alt", content: `${company.name} - Project Management Consultancy` },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
       { rel: "canonical", href: siteUrl },
-      { rel: "icon", href: "/favicon.ico" },
-      { rel: "apple-touch-icon", href: company.brand.logoSrc },
+      
+      // Modern SVG favicon (all modern browsers)
+      { 
+        rel: "icon", 
+        href: "/favicon.svg", 
+        type: "image/svg+xml" 
+      },
+      
+      // PNG fallback for older browsers
+      { 
+        rel: "icon", 
+        href: "/favicon-96x96.png", 
+        sizes: "96x96", 
+        type: "image/png" 
+      },
+      
+      // Legacy ICO fallback - Multi-resolution container
+      { 
+        rel: "icon", 
+        href: "/favicon.ico", 
+        sizes: "any"
+      },
+      
+      // Apple Touch Icon
+      { 
+        rel: "apple-touch-icon", 
+        href: "/apple-touch-icon.png", 
+        sizes: "180x180" 
+      },
+      
+      // PWA Manifest
+      { 
+        rel: "manifest", 
+        href: "/site.webmanifest" 
+      },
+      
+      // Performance
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       {
         rel: "preconnect",
