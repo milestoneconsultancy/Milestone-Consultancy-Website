@@ -14,8 +14,8 @@ export const company = {
   contact: {
     phone: "+91 8452845537",
     phoneHref: "tel:+918452845537",
-    email: "milestoneconsultancyllp@gmail.com",
-    emailHref: "mailto:milestoneconsultancyllp@gmail.com",
+    email: "info@milestoneconsultancy.in",
+    emailHref: "mailto:info@milestoneconsultancy.in",
     // ✅ WhatsApp
     whatsappNumber: "+91 8452845537",
     whatsappMessage: "Hello! I would like to know more about your services.",

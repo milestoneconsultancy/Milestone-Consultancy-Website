@@ -2,7 +2,7 @@
 
 Company: Milestone Consultancy
 Website: https://milestoneconsultancy.in
-Email: milestoneconsultancyllp@gmail.com
+Email: info@milestoneconsultancy.in
 Location: Kalyan, Maharashtra, India
 
 /* TECHNOLOGY */
