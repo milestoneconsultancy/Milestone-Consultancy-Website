@@ -21,7 +21,52 @@ export const Route = createFileRoute("/projects")({
       { title: "Projects | Milestone Consultancy" },
       {
         name: "description",
-        content: "Explore our ongoing and completed projects.",
+        content:
+          "Explore Milestone Consultancy's ongoing and completed highway, infrastructure and building projects across India.",
+      },
+      {
+        name: "keywords",
+        content:
+          "Milestone Consultancy Projects, Highway Projects, Infrastructure Projects, Building Projects, Project Management Consultancy, PMC India, Construction Projects, Maharashtra",
+      },
+      { name: "robots", content: "index, follow" },
+      { name: "googlebot", content: "index, follow" },
+
+      { property: "og:title", content: "Projects | Milestone Consultancy" },
+      {
+        property: "og:description",
+        content:
+          "Explore Milestone Consultancy's ongoing and completed engineering projects.",
+      },
+      { property: "og:type", content: "website" },
+      {
+        property: "og:url",
+        content: "https://milestoneconsultancy.in/projects",
+      },
+      {
+        property: "og:image",
+        content: "https://milestoneconsultancy.in/milestone-logo.jpeg",
+      },
+      { property: "og:site_name", content: "Milestone Consultancy" },
+      { property: "og:locale", content: "en_IN" },
+
+      { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Projects | Milestone Consultancy" },
+      {
+        name: "twitter:description",
+        content:
+          "Explore Milestone Consultancy's ongoing and completed engineering projects.",
+      },
+      {
+        name: "twitter:image",
+        content: "https://milestoneconsultancy.in/milestone-logo.jpeg",
+      },
+    ],
+
+    links: [
+      {
+        rel: "canonical",
+        href: "https://milestoneconsultancy.in/projects",
       },
     ],
   }),

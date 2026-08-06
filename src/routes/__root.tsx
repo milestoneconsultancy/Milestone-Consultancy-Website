@@ -122,7 +122,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "canonical", href: siteUrl },
+      // REMOVED: Global canonical - now handled by individual pages
       
       // Modern SVG favicon (all modern browsers)
       { 
