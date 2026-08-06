@@ -9,43 +9,104 @@ import aboutImage from "@/assets/about-engineer.jpg";
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: `About ${company.name} | Project Management Consultancy` },
+      { title: `About ${company.name} | Project Management Consultancy in Kalyan, Maharashtra` },
       {
         name: "description",
-        content:
-          "Learn about Milestone Consultancy — our mission, vision, values and engineering philosophy for delivering infrastructure and building projects across India.",
+        content: "Learn about Milestone Consultancy, a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra. Discover our mission, vision, values, and engineering philosophy for delivering infrastructure, highway, and building projects across India.",
       },
-      { property: "og:title", content: `About ${company.name}` },
+      { property: "og:title", content: `About ${company.name} | Project Management Consultancy` },
       {
         property: "og:description",
-        content:
-          "Mission, vision, values and engineering philosophy of Milestone Consultancy.",
+        content: "Learn about Milestone Consultancy, a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra. Discover our mission, vision, values, and engineering philosophy for delivering infrastructure, highway, and building projects across India.",
       },
       {
         name: "keywords",
-        content:
-          "About Milestone Consultancy, Project Management Consultancy, Construction Management, Highway Consultancy, Infrastructure Consultancy, Engineering Consultancy, Road Construction, Maharashtra, India",
+        content: "About Milestone Consultancy, Project Management Consultancy, Engineering Consultancy, Civil Engineering Consultancy, Construction Management, Highway Consultancy, Infrastructure Consultancy, Building Consultancy, Project Planning, Quantity Surveying, Quality Assurance, Quality Control, Kalyan, Thane, Mumbai Metropolitan Region, Maharashtra, India",
       },
-      { name: "robots", content: "index, follow" },
-      { name: "googlebot", content: "index, follow" },
+      { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
+      { name: "googlebot", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://milestoneconsultancy.in/about" },
       { property: "og:image", content: "https://milestoneconsultancy.in/milestone-logo.jpeg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: `${company.name} - Project Management Consultancy in Kalyan, Maharashtra` },
       { property: "og:site_name", content: company.name },
       { property: "og:locale", content: "en_IN" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: `About ${company.name}` },
+      { name: "twitter:title", content: `About ${company.name} | Project Management Consultancy` },
       {
         name: "twitter:description",
-        content:
-          "Mission, vision, values and engineering philosophy of Milestone Consultancy.",
+        content: "Learn about Milestone Consultancy, a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra. Discover our mission, vision, values, and engineering philosophy for delivering infrastructure, highway, and building projects across India.",
       },
       { name: "twitter:image", content: "https://milestoneconsultancy.in/milestone-logo.jpeg" },
+      { name: "twitter:image:alt", content: `${company.name} - Project Management Consultancy` },
     ],
     links: [
       {
         rel: "canonical",
         href: "https://milestoneconsultancy.in/about",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "AboutPage",
+          "@id": "https://milestoneconsultancy.in/about#about-page",
+          url: "https://milestoneconsultancy.in/about",
+          name: `About ${company.name} | Project Management Consultancy`,
+          description: "Learn about Milestone Consultancy, a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra. Discover our mission, vision, values, and engineering philosophy for delivering infrastructure, highway, and building projects across India.",
+          isPartOf: {
+            "@id": "https://milestoneconsultancy.in#website",
+          },
+          about: {
+            "@id": "https://milestoneconsultancy.in#organization",
+          },
+          publisher: {
+            "@id": "https://milestoneconsultancy.in#organization",
+          },
+          primaryImageOfPage: {
+            "@type": "ImageObject",
+            url: "https://milestoneconsultancy.in/milestone-logo.jpeg",
+            width: 1200,
+            height: 630,
+          },
+          breadcrumb: {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: "https://milestoneconsultancy.in",
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "About",
+                item: "https://milestoneconsultancy.in/about",
+              },
+            ],
+          },
+          mainEntity: {
+            "@type": "ProfessionalService",
+            "@id": "https://milestoneconsultancy.in#professional-service",
+            name: company.name,
+            description: "Milestone Consultancy is a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra, providing civil engineering, construction management, highway engineering, infrastructure consultancy, and quality assurance services.",
+            url: "https://milestoneconsultancy.in",
+            telephone: company.contact.phone,
+            email: company.contact.email,
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Kalyan West",
+              addressRegion: "Maharashtra",
+              postalCode: "421301",
+              addressCountry: "IN",
+            },
+          },
+        }),
       },
     ],
   }),
@@ -92,7 +153,7 @@ function AboutPage() {
   return (
     <SiteLayout>
       {/* Intro banner */}
-      <section className="pt-16 pb-10 lg:pt-24 lg:pb-16 bg-[color:var(--color-brand-navy)] text-white">
+      <section className="pt-16 pb-10 lg:pt-24 lg:pb-16 bg-[color:var(--color-brand-navy)] text-white" aria-labelledby="about-heading">
         <div className="container-page">
           <motion.div
             initial={{ opacity: 0, y: 16 }}
@@ -103,21 +164,21 @@ function AboutPage() {
             <span className="eyebrow text-[color:var(--color-brand-orange)]">
               About Us
             </span>
-            <h1 className="mt-4 font-display text-4xl sm:text-5xl lg:text-6xl font-semibold text-balance leading-[1.05]">
+            <h1 id="about-heading" className="mt-4 font-display text-4xl sm:text-5xl lg:text-6xl font-semibold text-balance leading-[1.05]">
               Engineering discipline for India's next generation of infrastructure.
             </h1>
             <p className="mt-6 text-white/75 text-base sm:text-lg max-w-2xl">
-              Milestone Consultancy is a Project Management Consultancy based in
+              Milestone Consultancy is a project management consultancy based in
               Kalyan, Maharashtra. We support owners, developers and public
               agencies in delivering highways, infrastructure and buildings with
-              engineering precision.
+              engineering precision across the Mumbai Metropolitan Region and beyond.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Mission / Vision / Values */}
-      <section className="py-24">
+      <section className="py-24" aria-labelledby="pillars-heading">
         <div className="container-page">
           <div className="grid gap-6 md:grid-cols-3">
             {pillars.map((p, i) => {
@@ -132,7 +193,7 @@ function AboutPage() {
                   className="rounded-2xl border border-border bg-card p-8 shadow-[var(--shadow-soft)]"
                 >
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[color:var(--color-brand-navy)] text-white">
-                    <Icon className="h-6 w-6" />
+                    <Icon className="h-6 w-6" aria-hidden="true" />
                   </div>
                   <h3 className="mt-5 font-display text-xl font-semibold text-[color:var(--color-brand-navy)]">
                     {p.title}
@@ -148,21 +209,22 @@ function AboutPage() {
       </section>
 
       {/* Why + Image */}
-      <section className="pb-24">
+      <section className="pb-24" aria-labelledby="why-heading">
         <div className="container-page grid gap-14 lg:grid-cols-2 items-center">
           <img
             src={aboutImage}
-            alt="Engineer supervising site works"
+            alt="Civil engineer supervising construction site work, reviewing project plans and ensuring quality control for infrastructure development"
             loading="lazy"
             width={1400}
             height={1000}
             className="rounded-2xl object-cover shadow-[var(--shadow-elegant)] w-full aspect-[4/3]"
+            decoding="async"
           />
           <div>
             <SectionHeader
               eyebrow="Why Milestone Consultancy"
               title="A partner focused on outcomes, not just deliverables."
-              description="We are a newly established consultancy that combines contemporary project management practices with traditional engineering discipline. Our approach is deliberately professional, transparent and outcome-driven."
+              description="We are a consultancy that combines contemporary project management practices with traditional engineering discipline. Our approach is deliberately professional, transparent and outcome-driven, serving clients across government infrastructure projects and private sector developments."
             />
             <div className="mt-8 space-y-5">
               {whyPoints.map((w) => {
@@ -170,7 +232,7 @@ function AboutPage() {
                 return (
                   <div key={w.title} className="flex gap-4">
                     <div className="flex-shrink-0 flex h-10 w-10 items-center justify-center rounded-lg bg-[color:var(--color-brand-orange)]/10 text-[color:var(--color-brand-orange)]">
-                      <Icon className="h-5 w-5" />
+                      <Icon className="h-5 w-5" aria-hidden="true" />
                     </div>
                     <div>
                       <h4 className="font-semibold text-[color:var(--color-brand-navy)]">
@@ -189,13 +251,13 @@ function AboutPage() {
       </section>
 
       {/* Philosophy */}
-      <section className="pb-24">
+      <section className="pb-24" aria-labelledby="philosophy-heading">
         <div className="container-page">
           <div className="rounded-3xl bg-muted/50 border border-border p-8 sm:p-14">
             <div className="grid gap-10 lg:grid-cols-2">
               <div>
                 <span className="eyebrow">Engineering Philosophy</span>
-                <h2 className="mt-4 font-display text-3xl sm:text-4xl font-semibold text-[color:var(--color-brand-navy)] text-balance">
+                <h2 id="philosophy-heading" className="mt-4 font-display text-3xl sm:text-4xl font-semibold text-[color:var(--color-brand-navy)] text-balance">
                   Plan carefully. Execute precisely. Sustain relentlessly.
                 </h2>
               </div>
@@ -208,7 +270,8 @@ function AboutPage() {
                 <p>
                   Our commitment is simple — to earn every client's trust by
                   the quality of our engineering, the clarity of our reporting
-                  and the reliability of our delivery.
+                  and the reliability of our delivery across highway,
+                  infrastructure and building projects.
                 </p>
               </div>
             </div>

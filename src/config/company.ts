@@ -7,8 +7,8 @@ export const company = {
   legalName: "Milestone Consultancy",
   tagline: "Engineering Tomorrow. Delivering Excellence.",
   shortDescription:
-    "An Indian Project Management Consultancy delivering highway, infrastructure and building projects with engineering precision.",
-  industry: "Project Management Consultancy (PMC)",
+    "Milestone Consultancy is a project management consultancy and engineering consultancy firm headquartered in Kalyan, serving clients across the Mumbai Metropolitan Region, Thane, and Maharashtra. The firm provides construction management, civil engineering consultancy, and infrastructure advisory services for highway engineering, building construction, and industrial development projects. Milestone Consultancy offers quantity surveying, billing engineering, cost estimation, tender consultancy, and contract management to both government infrastructure projects and private sector developments. The consultancy delivers project planning, project monitoring, quality assurance, and quality control (QA QC) for residential, commercial, and industrial projects, providing engineering solutions that meet technical specifications and project schedules throughout Maharashtra and beyond.",
+  industry: "Project Management Consultancy (PMC), Civil Engineering, Construction Management, Highway Engineering, Infrastructure Development, Building Construction, Quantity Surveying, Cost Estimation, Tender & Contract Management, Quality Assurance & Quality Control (QA/QC), Project Planning & Monitoring",
   founded: 2024,
 
   contact: {
@@ -16,7 +16,6 @@ export const company = {
     phoneHref: "tel:+918452845537",
     email: "info@milestoneconsultancy.in",
     emailHref: "mailto:info@milestoneconsultancy.in",
-    // ✅ WhatsApp
     whatsappNumber: "+91 8452845537",
     whatsappMessage: "Hello! I would like to know more about your services.",
   },

@@ -17,40 +17,127 @@ import emailjs from "@emailjs/browser";
 export const Route = createFileRoute("/contact")({
   head: () => ({
     meta: [
-      { title: `Contact | ${company.name}` },
+      { title: `Contact | ${company.name} - Project Management Consultancy in Kalyan, Maharashtra` },
       {
         name: "description",
-        content: `Get in touch with ${company.name}. Phone: ${company.contact.phone}. Email: ${company.contact.email}. Based in Kalyan, Maharashtra, India.`,
+        content: `Contact Milestone Consultancy, a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra. Phone: ${company.contact.phone}. Email: ${company.contact.email}. Based in Kalyan, Maharashtra, India.`,
       },
-      { property: "og:title", content: `Contact | ${company.name}` },
+      { property: "og:title", content: `Contact | ${company.name} - Project Management Consultancy` },
       {
         property: "og:description",
-        content: "Reach the Milestone Consultancy team.",
+        content: `Contact Milestone Consultancy, a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra. Phone: ${company.contact.phone}. Email: ${company.contact.email}.`,
       },
       {
         name: "keywords",
-        content:
-          "Contact Milestone Consultancy, Project Management Consultancy, Construction Consultancy, Highway Consultancy, Infrastructure Consultancy, Engineering Consultancy, Road Construction, PMC, Kalyan, Maharashtra, India",
+        content: "Contact Milestone Consultancy, Project Management Consultancy, Engineering Consultancy, Construction Management, Highway Consultancy, Infrastructure Consultancy, Building Consultancy, PMC, Kalyan, Kalyan West, Thane, Mumbai Metropolitan Region, Maharashtra, India",
       },
-      { name: "robots", content: "index, follow" },
-      { name: "googlebot", content: "index, follow" },
+      { name: "robots", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
+      { name: "googlebot", content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1" },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://milestoneconsultancy.in/contact" },
       { property: "og:image", content: "https://milestoneconsultancy.in/milestone-logo.jpeg" },
+      { property: "og:image:width", content: "1200" },
+      { property: "og:image:height", content: "630" },
+      { property: "og:image:alt", content: `${company.name} - Contact Project Management Consultancy` },
       { property: "og:site_name", content: company.name },
       { property: "og:locale", content: "en_IN" },
       { name: "twitter:card", content: "summary_large_image" },
-      { name: "twitter:title", content: `Contact | ${company.name}` },
+      { name: "twitter:title", content: `Contact | ${company.name} - Project Management Consultancy` },
       {
         name: "twitter:description",
-        content: "Reach the Milestone Consultancy team.",
+        content: `Contact Milestone Consultancy, a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra. Phone: ${company.contact.phone}. Email: ${company.contact.email}.`,
       },
       { name: "twitter:image", content: "https://milestoneconsultancy.in/milestone-logo.jpeg" },
+      { name: "twitter:image:alt", content: `${company.name} - Contact Project Management Consultancy` },
     ],
     links: [
       {
         rel: "canonical",
         href: "https://milestoneconsultancy.in/contact",
+      },
+    ],
+    scripts: [
+      {
+        type: "application/ld+json",
+        children: JSON.stringify({
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "ContactPage",
+              "@id": "https://milestoneconsultancy.in/contact#contact-page",
+              url: "https://milestoneconsultancy.in/contact",
+              name: `Contact | ${company.name} - Project Management Consultancy`,
+              description: `Contact Milestone Consultancy, a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra. Phone: ${company.contact.phone}. Email: ${company.contact.email}.`,
+              inLanguage: "en-IN",
+              dateModified: "2026-08-06",
+              isPartOf: {
+                "@id": "https://milestoneconsultancy.in#website",
+              },
+              about: {
+                "@id": "https://milestoneconsultancy.in#organization",
+              },
+              publisher: {
+                "@id": "https://milestoneconsultancy.in#organization",
+              },
+              primaryImageOfPage: {
+                "@type": "ImageObject",
+                url: "https://milestoneconsultancy.in/milestone-logo.jpeg",
+                width: 1200,
+                height: 630,
+              },
+              breadcrumb: {
+                "@type": "BreadcrumbList",
+                itemListElement: [
+                  {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: "Home",
+                    item: "https://milestoneconsultancy.in",
+                  },
+                  {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: "Contact",
+                    item: "https://milestoneconsultancy.in/contact",
+                  },
+                ],
+              },
+              mainEntity: {
+                "@type": "ContactPoint",
+                telephone: company.contact.phone,
+                email: company.contact.email,
+                contactType: "sales",
+                availableLanguage: ["English", "Hindi", "Marathi"],
+                areaServed: "IN",
+              },
+            },
+            {
+              "@type": "ContactPoint",
+              "@id": "https://milestoneconsultancy.in#contact-point",
+              telephone: company.contact.phone,
+              email: company.contact.email,
+              contactType: "sales",
+              availableLanguage: ["English", "Hindi", "Marathi"],
+              areaServed: "IN",
+            },
+            {
+              "@type": "WebPage",
+              "@id": "https://milestoneconsultancy.in/contact#webpage",
+              url: "https://milestoneconsultancy.in/contact",
+              name: `Contact | ${company.name} - Project Management Consultancy`,
+              description: `Contact Milestone Consultancy, a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra. Phone: ${company.contact.phone}. Email: ${company.contact.email}.`,
+              isPartOf: {
+                "@id": "https://milestoneconsultancy.in#website",
+              },
+              about: {
+                "@id": "https://milestoneconsultancy.in#organization",
+              },
+              publisher: {
+                "@id": "https://milestoneconsultancy.in#organization",
+              },
+            },
+          ],
+        }),
       },
     ],
   }),
@@ -134,12 +221,12 @@ function ContactPage() {
 
   return (
     <SiteLayout>
-      <section className="pt-16 pb-14 lg:pt-24 lg:pb-20 bg-[color:var(--color-brand-navy)] text-white">
+      <section className="pt-16 pb-14 lg:pt-24 lg:pb-20 bg-[color:var(--color-brand-navy)] text-white" aria-labelledby="contact-heading">
         <div className="container-page max-w-3xl">
           <span className="eyebrow text-[color:var(--color-brand-orange)]">
             Contact
           </span>
-          <h1 className="mt-4 font-display text-4xl sm:text-5xl lg:text-6xl font-semibold text-balance leading-[1.05]">
+          <h1 id="contact-heading" className="mt-4 font-display text-4xl sm:text-5xl lg:text-6xl font-semibold text-balance leading-[1.05]">
             Let's talk about your next project.
           </h1>
           <p className="mt-6 text-white/75 text-base sm:text-lg max-w-2xl">
@@ -149,7 +236,7 @@ function ContactPage() {
         </div>
       </section>
 
-      <section className="py-16 lg:py-20">
+      <section className="py-16 lg:py-20" aria-labelledby="contact-cards-heading">
         <div className="container-page grid gap-6 md:grid-cols-3">
           {cards.map((c, i) => {
             const Icon = c.icon;
@@ -166,7 +253,7 @@ function ContactPage() {
                 className="group rounded-2xl border border-border bg-card p-7 hover:shadow-[var(--shadow-elegant)] hover:border-[color:var(--color-brand-orange)]/40 transition-all"
               >
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[color:var(--color-brand-navy)]/5 text-[color:var(--color-brand-navy)] group-hover:bg-[color:var(--color-brand-orange)] group-hover:text-white transition-colors">
-                  <Icon className="h-6 w-6" />
+                  <Icon className="h-6 w-6" aria-hidden="true" />
                 </div>
                 <div className="mt-5 eyebrow">{c.label}</div>
                 <div className="mt-1 font-medium text-[color:var(--color-brand-navy)] break-words">
@@ -178,7 +265,7 @@ function ContactPage() {
         </div>
       </section>
 
-      <section className="pb-24">
+      <section className="pb-24" aria-labelledby="contact-form-heading">
         <div className="container-page grid gap-10 lg:grid-cols-[1.2fr_1fr]">
           <div className="rounded-3xl border border-border bg-card p-8 sm:p-12">
             <SectionHeader
@@ -188,7 +275,7 @@ function ContactPage() {
             />
             {submitted ? (
               <div className="mt-10 rounded-2xl border border-[color:var(--color-brand-orange)]/30 bg-[color:var(--color-brand-orange)]/5 p-6 flex gap-4 items-start">
-                <CheckCircle2 className="h-6 w-6 text-[color:var(--color-brand-orange)] mt-0.5" />
+                <CheckCircle2 className="h-6 w-6 text-[color:var(--color-brand-orange)] mt-0.5" aria-hidden="true" />
                 <div>
                   <div className="font-semibold text-[color:var(--color-brand-navy)]">
                     Thank you — your message has been received.
@@ -207,7 +294,7 @@ function ContactPage() {
             ) : (
               <form onSubmit={handleSubmit(onSubmit)} className="mt-8 grid gap-5">
                 {error && (
-                  <div className="rounded-lg bg-red-50 p-4 text-sm text-red-600 border border-red-200">
+                  <div className="rounded-lg bg-red-50 p-4 text-sm text-red-600 border border-red-200" role="alert">
                     {error}
                   </div>
                 )}
@@ -265,7 +352,7 @@ function ContactPage() {
                   className="mt-2 rounded-full bg-[color:var(--color-brand-orange)] hover:bg-[color:var(--color-brand-orange)]/90 text-white h-12 w-full sm:w-auto sm:px-8"
                 >
                   {isSubmitting ? "Sending..." : "Send Message"}
-                  <Send className="ml-2 h-4 w-4" />
+                  <Send className="ml-2 h-4 w-4" aria-hidden="true" />
                 </Button>
               </form>
             )}
@@ -274,7 +361,7 @@ function ContactPage() {
           <div className="flex flex-col gap-6">
             <div className="rounded-3xl border border-border bg-[color:var(--color-brand-navy)] text-white p-8">
               <div className="flex items-center gap-3">
-                <Clock className="h-5 w-5 text-[color:var(--color-brand-orange)]" />
+                <Clock className="h-5 w-5 text-[color:var(--color-brand-orange)]" aria-hidden="true" />
                 <h3 className="font-display text-lg font-semibold">
                   Working Hours
                 </h3>
@@ -293,7 +380,7 @@ function ContactPage() {
             </div>
             <div className="rounded-3xl overflow-hidden border border-border aspect-[4/3] lg:aspect-auto lg:flex-1 min-h-[280px] bg-muted">
               <iframe
-                title="Milestone Consultancy location"
+                title="Milestone Consultancy location - Kalyan, Maharashtra"
                 src={company.googleMapsEmbed}
                 className="w-full h-full border-0"
                 loading="lazy"
