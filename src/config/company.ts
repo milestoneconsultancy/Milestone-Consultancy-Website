@@ -12,11 +12,11 @@ export const company = {
   founded: 2024,
 
   contact: {
-    phone: "+91 8452845537",
-    phoneHref: "tel:+918452845537",
+    phone: "+91 9225112090",
+    phoneHref: "tel:+919225112090",
     email: "info@milestoneconsultancy.in",
     emailHref: "mailto:info@milestoneconsultancy.in",
-    whatsappNumber: "+91 8452845537",
+    whatsappNumber: "+91 9225112090",
     whatsappMessage: "Hello! I would like to know more about your services.",
   },
 
