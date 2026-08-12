@@ -128,6 +128,12 @@ export const Route =
           content: "index, follow",
         },
 
+        // Bing Webmaster Tools verification
+        {
+          name: "msvalidate.01",
+          content: "AB99620C50FAA6ABE6312C4ACE173613",
+        },
+
         {
           name: "googlebot",
           content:
