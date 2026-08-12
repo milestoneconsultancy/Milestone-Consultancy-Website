@@ -20,30 +20,38 @@ import aboutImage from "@/assets/about-engineer.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: `${company.name} | Project Management Consultancy in Kalyan, Maharashtra` },
+      {
+        title: `${company.name} | Project Management Consultancy in Kalyan, Maharashtra`,
+      },
       {
         name: "description",
-        content: "Milestone Consultancy is a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra, providing civil engineering, construction management, highway engineering, infrastructure consultancy, and quality assurance services for government and private projects across the Mumbai Metropolitan Region.",
+        content:
+          "Milestone Consultancy is a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra, providing civil engineering, construction management, highway engineering, infrastructure consultancy, and quality assurance services for government and private projects across the Mumbai Metropolitan Region.",
       },
       {
         property: "og:title",
-        content: `${company.name} | Project Management Consultancy in Kalyan, Maharashtra`,
+        content:
+          `${company.name} | Project Management Consultancy in Kalyan, Maharashtra`,
       },
       {
         property: "og:description",
-        content: "Milestone Consultancy is a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra, providing civil engineering, construction management, highway engineering, infrastructure consultancy, and quality assurance services for government and private projects across the Mumbai Metropolitan Region.",
+        content:
+          "Milestone Consultancy is a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra, providing civil engineering, construction management, highway engineering, infrastructure consultancy, and quality assurance services for government and private projects across the Mumbai Metropolitan Region.",
       },
       {
         name: "keywords",
-        content: "Project Management Consultancy, PMC, Engineering Consultancy, Civil Engineering Consultancy, Construction Management, Highway Engineering, Infrastructure Consultancy, Building Consultancy, Quantity Surveying, Cost Estimation, Tender Consultancy, Contract Management, Project Planning, Quality Assurance, QA QC, Kalyan, Thane, Mumbai Metropolitan Region, Maharashtra, India, Government Infrastructure, Private Infrastructure, Engineering Solutions",
+        content:
+          "Project Management Consultancy, PMC, Engineering Consultancy, Civil Engineering Consultancy, Construction Management, Highway Engineering, Infrastructure Consultancy, Building Consultancy, Quantity Surveying, Cost Estimation, Tender Consultancy, Contract Management, Project Planning, Quality Assurance, QA QC, Kalyan, Thane, Mumbai Metropolitan Region, Maharashtra, India, Government Infrastructure, Private Infrastructure, Engineering Solutions",
       },
       {
         name: "robots",
-        content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+        content:
+          "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
       },
       {
         name: "googlebot",
-        content: "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
+        content:
+          "index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1",
       },
       {
         property: "og:type",
@@ -67,7 +75,8 @@ export const Route = createFileRoute("/")({
       },
       {
         property: "og:image:alt",
-        content: `${company.name} - Project Management Consultancy in Kalyan, Maharashtra`,
+        content:
+          `${company.name} - Project Management Consultancy in Kalyan, Maharashtra`,
       },
       {
         property: "og:site_name",
@@ -83,11 +92,13 @@ export const Route = createFileRoute("/")({
       },
       {
         name: "twitter:title",
-        content: `${company.name} | Project Management Consultancy in Kalyan, Maharashtra`,
+        content:
+          `${company.name} | Project Management Consultancy in Kalyan, Maharashtra`,
       },
       {
         name: "twitter:description",
-        content: "Milestone Consultancy is a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra, providing civil engineering, construction management, highway engineering, infrastructure consultancy, and quality assurance services for government and private projects across the Mumbai Metropolitan Region.",
+        content:
+          "Milestone Consultancy is a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra, providing civil engineering, construction management, highway engineering, infrastructure consultancy, and quality assurance services for government and private projects across the Mumbai Metropolitan Region.",
       },
       {
         name: "twitter:image",
@@ -113,7 +124,8 @@ export const Route = createFileRoute("/")({
           "@id": "https://milestoneconsultancy.in#webpage",
           url: "https://milestoneconsultancy.in",
           name: `${company.name} | Project Management Consultancy in Kalyan, Maharashtra`,
-          description: "Milestone Consultancy is a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra, providing civil engineering, construction management, highway engineering, infrastructure consultancy, and quality assurance services for government and private projects across the Mumbai Metropolitan Region.",
+          description:
+            "Milestone Consultancy is a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra, providing civil engineering, construction management, highway engineering, infrastructure consultancy, and quality assurance services for government and private projects across the Mumbai Metropolitan Region.",
           isPartOf: {
             "@id": "https://milestoneconsultancy.in#website",
           },
@@ -139,9 +151,11 @@ export const Route = createFileRoute("/")({
           },
           mainEntity: {
             "@type": "ProfessionalService",
-            "@id": "https://milestoneconsultancy.in#professional-service",
+            "@id":
+              "https://milestoneconsultancy.in#professional-service",
             name: company.name,
-            description: "Milestone Consultancy is a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra, providing civil engineering, construction management, highway engineering, infrastructure consultancy, and quality assurance services for government and private projects across the Mumbai Metropolitan Region.",
+            description:
+              "Milestone Consultancy is a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra, providing civil engineering, construction management, highway engineering, infrastructure consultancy, and quality assurance services for government and private projects across the Mumbai Metropolitan Region.",
             url: "https://milestoneconsultancy.in",
             telephone: company.contact.phone,
             email: company.contact.email,
@@ -166,7 +180,10 @@ const fadeUp = {
   initial: { opacity: 0, y: 24 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-80px" },
-  transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+  transition: {
+    duration: 0.6,
+    ease: [0.22, 1, 0.36, 1] as const,
+  },
 };
 
 const whyChooseUs = [
@@ -206,7 +223,10 @@ function HomePage() {
   return (
     <SiteLayout>
       {/* HERO */}
-      <section className="relative isolate overflow-hidden" aria-labelledby="hero-heading">
+      <section
+        className="relative isolate overflow-hidden"
+        aria-labelledby="hero-heading"
+      >
         <div className="absolute inset-0 -z-10">
           <img
             src={heroImage}
@@ -242,7 +262,7 @@ function HomePage() {
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.1 }}
-              className="mt-6 font-display text-4xl sm:text-5xl lg:text-7xl font-semibold leading-[1.05] tracking-tight text-balance"
+              className="mt-6 font-display text-4xl sm:text-5xl font-semibold leading-[1.05] tracking-tight text-balance"
             >
               Engineering Tomorrow.
               <span className="block text-[color:var(--color-brand-orange)]">
@@ -258,7 +278,10 @@ function HomePage() {
               transition={{ duration: 0.7, delay: 0.2 }}
               className="mt-6 max-w-2xl text-base sm:text-lg leading-relaxed text-white/85"
             >
-              Project Management Consultancy delivering highway, infrastructure and building projects with engineering precision to create sustainable structures across the Mumbai Metropolitan Region and Maharashtra.
+              Project Management Consultancy delivering highway,
+              infrastructure and building projects with engineering precision
+              to create sustainable structures across the Mumbai Metropolitan
+              Region and Maharashtra.
             </motion.p>
 
             <motion.div
@@ -279,6 +302,7 @@ function HomePage() {
                   <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>
+
               <Button
                 asChild
                 size="lg"
@@ -291,7 +315,10 @@ function HomePage() {
           </div>
         </div>
 
-        <div className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-[color:var(--color-brand-navy)]/60 backdrop-blur" aria-hidden="true">
+        <div
+          className="absolute bottom-0 left-0 right-0 border-t border-white/10 bg-[color:var(--color-brand-navy)]/60 backdrop-blur"
+          aria-hidden="true"
+        >
           <div className="container-page grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
             {[
               "Highway Engineering",
@@ -311,7 +338,11 @@ function HomePage() {
       </section>
 
       {/* WHO WE ARE - Updated with Larger Mission, Vision, Values */}
-      <section id="who-we-are" className="py-24 lg:py-32" aria-labelledby="who-we-are-heading">
+      <section
+        id="who-we-are"
+        className="py-24 lg:py-32"
+        aria-labelledby="who-we-are-heading"
+      >
         <div className="container-page grid gap-14 lg:grid-cols-2 lg:gap-20 items-center">
           <motion.div
             {...fadeUp}
@@ -347,20 +378,20 @@ function HomePage() {
             {/* ✅ Updated Mission, Vision, Values - Motha ani Visible */}
             <div className="mt-10 grid sm:grid-cols-3 gap-6 md:gap-8">
               {[
-                { 
-                  label: "Mission", 
+                {
+                  label: "Mission",
                   body: "Deliver measurable value through disciplined project management.",
-                  icon: "🎯"
+                  icon: "🎯",
                 },
-                { 
-                  label: "Vision", 
+                {
+                  label: "Vision",
                   body: "Be a trusted engineering partner for India's infrastructure growth.",
-                  icon: "👁️"
+                  icon: "👁️",
                 },
-                { 
-                  label: "Values", 
+                {
+                  label: "Values",
                   body: "Integrity, precision, safety and long-term client relationships.",
-                  icon: "💎"
+                  icon: "💎",
                 },
               ].map((item, i) => (
                 <div
@@ -370,11 +401,14 @@ function HomePage() {
                   className="group rounded-2xl border border-border bg-card p-6 md:p-8 transition-all duration-300 hover:-translate-y-2 hover:shadow-[var(--shadow-premium)] hover:border-[color:var(--color-brand-orange)]/40"
                 >
                   <div className="flex items-center gap-3 mb-3 md:mb-4">
-                    <span className="text-2xl md:text-3xl" aria-hidden="true">{item.icon}</span>
+                    <span className="text-2xl md:text-3xl" aria-hidden="true">
+                      {item.icon}
+                    </span>
                     <div className="eyebrow text-sm md:text-base font-bold text-[color:var(--color-brand-navy)]">
                       {item.label}
                     </div>
                   </div>
+
                   <p className="mt-2 text-sm md:text-base lg:text-lg text-foreground/80 leading-relaxed font-medium">
                     {item.body}
                   </p>
@@ -399,7 +433,11 @@ function HomePage() {
       </section>
 
       {/* SERVICES */}
-      <section id="services" className="py-24 lg:py-32 bg-muted/40 border-y border-border" aria-labelledby="services-heading">
+      <section
+        id="services"
+        className="py-24 lg:py-32 bg-muted/40 border-y border-border"
+        aria-labelledby="services-heading"
+      >
         <div className="container-page">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
             <SectionHeader
@@ -407,6 +445,7 @@ function HomePage() {
               title="A full spectrum of project management and engineering services."
               description="From feasibility to close-out — a single accountable partner across the entire delivery chain."
             />
+
             <Button
               asChild
               variant="outline"
@@ -422,6 +461,7 @@ function HomePage() {
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {services.slice(0, 9).map((s, i) => {
               const Icon = s.icon;
+
               return (
                 <motion.div
                   key={s.slug}
@@ -436,9 +476,11 @@ function HomePage() {
                   <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[color:var(--color-brand-navy)]/5 text-[color:var(--color-brand-navy)] group-hover:bg-[color:var(--color-brand-orange)] group-hover:text-white transition-colors">
                     <Icon className="h-6 w-6" aria-hidden="true" />
                   </div>
+
                   <h3 className="mt-5 font-display text-lg font-semibold text-[color:var(--color-brand-navy)]">
                     {s.title}
                   </h3>
+
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                     {s.summary}
                   </p>
@@ -450,7 +492,10 @@ function HomePage() {
       </section>
 
       {/* WHY CHOOSE US */}
-      <section className="py-24 lg:py-32" aria-labelledby="why-choose-us-heading">
+      <section
+        className="py-24 lg:py-32"
+        aria-labelledby="why-choose-us-heading"
+      >
         <div className="container-page">
           <SectionHeader
             align="center"
@@ -462,6 +507,7 @@ function HomePage() {
           <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {whyChooseUs.map((item, i) => {
               const Icon = item.icon;
+
               return (
                 <motion.div
                   key={item.title}
@@ -473,10 +519,15 @@ function HomePage() {
                   transition={{ duration: 0.5, delay: i * 0.05 }}
                   className="rounded-2xl border border-border p-7 bg-gradient-to-b from-white to-muted/30"
                 >
-                  <Icon className="h-6 w-6 text-[color:var(--color-brand-orange)]" aria-hidden="true" />
+                  <Icon
+                    className="h-6 w-6 text-[color:var(--color-brand-orange)]"
+                    aria-hidden="true"
+                  />
+
                   <h3 className="mt-4 font-display text-lg font-semibold text-[color:var(--color-brand-navy)]">
                     {item.title}
                   </h3>
+
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
                     {item.text}
                   </p>
@@ -495,22 +546,32 @@ function HomePage() {
             data-aos-delay="100"
             className="relative overflow-hidden rounded-3xl bg-[color:var(--color-brand-navy)] px-8 py-14 sm:px-14 sm:py-20"
           >
-            <div className="absolute -top-16 -right-16 h-72 w-72 rounded-full bg-[color:var(--color-brand-orange)]/20 blur-3xl" aria-hidden="true" />
-            <div className="absolute -bottom-24 -left-10 h-72 w-72 rounded-full bg-white/5 blur-3xl" aria-hidden="true" />
+            <div
+              className="absolute -top-16 -right-16 h-72 w-72 rounded-full bg-[color:var(--color-brand-orange)]/20 blur-3xl"
+              aria-hidden="true"
+            />
+
+            <div
+              className="absolute -bottom-24 -left-10 h-72 w-72 rounded-full bg-white/5 blur-3xl"
+              aria-hidden="true"
+            />
 
             <div className="relative grid gap-10 lg:grid-cols-[1.5fr_1fr] items-center">
               <div>
                 <span className="eyebrow text-[color:var(--color-brand-orange)]">
                   Start a Conversation
                 </span>
+
                 <h2 className="mt-4 font-display text-3xl sm:text-4xl lg:text-5xl font-semibold text-white text-balance">
                   Have a project in mind? Let's engineer it together.
                 </h2>
+
                 <p className="mt-5 text-white/70 max-w-xl">
                   Speak with our team about project management, highway
                   engineering or infrastructure consultancy.
                 </p>
               </div>
+
               <div className="flex flex-col sm:flex-row lg:flex-col gap-3">
                 <Button
                   asChild
@@ -522,6 +583,7 @@ function HomePage() {
                     <ArrowRight className="ml-2 h-4 w-4" />
                   </Link>
                 </Button>
+
                 <Button
                   asChild
                   size="lg"

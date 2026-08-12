@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { company } from "@/config/company";
 import { primaryNav } from "@/config/navigation";
 import { cn } from "@/lib/utils";
@@ -35,17 +35,17 @@ export function Navbar() {
       <div className="flex h-28 items-center justify-between w-full px-0 sm:px-0">
         
         {/* Logo - 100% Left Edge with small padding */}
-        <Link 
-          to="/" 
-          className="flex items-center gap-4 flex-shrink-0 ml-0 pl-2 sm:pl-4" 
+        <Link
+          to="/"
+          className="flex items-center gap-4 flex-shrink-0 ml-0 pl-2 sm:pl-4"
           aria-label={company.name}
         >
           <img
             src={company.brand.logoSrc}
             alt={company.brand.logoAlt}
-            className="h-[72px] w-[72px] rounded-md object-contain"
-            width={72}
-            height={72}
+            className="h-[108px] w-[108px] rounded-md object-contain"
+            width={108}
+            height={108}
           />
           <div className="hidden sm:flex flex-col leading-tight">
             <span className="font-display text-[24px] font-bold tracking-tight text-[color:var(--color-brand-navy)]">
@@ -62,7 +62,10 @@ export function Navbar() {
           <nav className="hidden lg:flex items-center gap-1">
             {primaryNav.map((item) => {
               const active =
-                item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
+                item.to === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(item.to);
+
               return (
                 <Link
                   key={item.to}
@@ -83,15 +86,8 @@ export function Navbar() {
             })}
           </nav>
 
-          {/* Contact & Button */}
+          {/* Get in Touch Button */}
           <div className="hidden lg:flex items-center gap-3 flex-shrink-0">
-            <a
-              href={company.contact.phoneHref}
-              className="flex items-center gap-2 text-[15px] font-medium text-foreground/80 hover:text-[color:var(--color-brand-navy)]"
-            >
-              <Phone className="h-[18px] w-[18px]" />
-              {company.contact.phone}
-            </a>
             <Button
               asChild
               className="bg-[color:var(--color-brand-orange)] hover:bg-[color:var(--color-brand-orange)]/90 text-white rounded-full px-6 py-3 text-[15px]"
@@ -118,7 +114,10 @@ export function Navbar() {
           <div className="flex flex-col gap-2 py-5 px-4">
             {primaryNav.map((item) => {
               const active =
-                item.to === "/" ? pathname === "/" : pathname.startsWith(item.to);
+                item.to === "/"
+                  ? pathname === "/"
+                  : pathname.startsWith(item.to);
+
               return (
                 <Link
                   key={item.to}
@@ -134,6 +133,7 @@ export function Navbar() {
                 </Link>
               );
             })}
+
             <Button
               asChild
               className="mt-3 bg-[color:var(--color-brand-orange)] hover:bg-[color:var(--color-brand-orange)]/90 text-white rounded-full py-3 text-[15px]"
