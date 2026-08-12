@@ -6,6 +6,11 @@ import { SectionHeader } from "@/components/sections/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { services } from "@/config/services";
 import { company } from "@/config/company";
+import {
+  createWebPageSchema,
+  createBreadcrumbSchema,
+  serviceSchemas,
+} from "@/config/schema";
 import surveyImage from "@/assets/services-survey.jpg";
 
 export const Route = createFileRoute("/services")({
@@ -65,66 +70,45 @@ export const Route = createFileRoute("/services")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@graph": [
-            {
-              "@type": "WebPage",
-              "@id": "https://milestoneconsultancy.in/services#webpage",
+            createWebPageSchema({
+              id: "services",
               url: "https://milestoneconsultancy.in/services",
               name: `Services | ${company.name} - Project Management Consultancy`,
-              description: "Explore Milestone Consultancy's project management consultancy and engineering services including PMC, highway engineering, infrastructure consultancy, building consultancy, QA/QC, quantity surveying, cost estimation, project planning, tender consultancy, and contract management.",
-              isPartOf: {
-                "@id": "https://milestoneconsultancy.in#website",
-              },
-              about: {
-                "@id": "https://milestoneconsultancy.in#organization",
-              },
-              breadcrumb: {
-                "@type": "BreadcrumbList",
-                itemListElement: [
-                  {
-                    "@type": "ListItem",
-                    position: 1,
-                    name: "Home",
-                    item: "https://milestoneconsultancy.in",
-                  },
-                  {
-                    "@type": "ListItem",
-                    position: 2,
-                    name: "Services",
-                    item: "https://milestoneconsultancy.in/services",
-                  },
-                ],
-              },
-            },
+              description:
+                "Explore Milestone Consultancy's project management consultancy and engineering services including PMC, highway engineering, infrastructure consultancy, building consultancy, QA/QC, quantity surveying, cost estimation, project planning, tender consultancy, and contract management.",
+              type: "CollectionPage",
+            }),
+
+            createBreadcrumbSchema(
+              "https://milestoneconsultancy.in/services",
+              [
+                {
+                  name: "Home",
+                  item: "https://milestoneconsultancy.in",
+                },
+                {
+                  name: "Services",
+                  item: "https://milestoneconsultancy.in/services",
+                },
+              ],
+            ),
+
             {
               "@type": "ItemList",
-              "@id": "https://milestoneconsultancy.in/services#services-list",
-              name: "Project Management Consultancy and Engineering Services",
-              description: "Comprehensive project management and engineering consultancy services for infrastructure, highway, and building projects.",
-              itemListElement: services.map((service, index) => ({
+              "@id":
+                "https://milestoneconsultancy.in/services#services-list",
+              name:
+                "Project Management Consultancy and Engineering Services",
+              description:
+                "Comprehensive project management and engineering consultancy services for infrastructure, highway, and building projects.",
+              numberOfItems: serviceSchemas.length,
+              itemListElement: serviceSchemas.map((service, index) => ({
                 "@type": "ListItem",
                 position: index + 1,
                 item: {
-                  "@type": "Service",
-                  name: service.title,
-                  description: service.description,
-                  provider: {
-                    "@id": "https://milestoneconsultancy.in#organization",
-                  },
-                  url: `https://milestoneconsultancy.in/services/${service.slug}`,
+                  "@id": service["@id"],
                 },
               })),
-              numberOfItems: services.length,
-            },
-            {
-              "@type": "Service",
-              "@id": "https://milestoneconsultancy.in#pmc-service",
-              name: "Project Management Consultancy",
-              description: "Comprehensive project management services for highway, infrastructure, and building projects.",
-              provider: {
-                "@id": "https://milestoneconsultancy.in#organization",
-              },
-              areaServed: "IN",
-              serviceType: "Project Management Consultancy",
             },
           ],
         }),

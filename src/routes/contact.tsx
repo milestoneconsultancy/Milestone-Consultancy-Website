@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { company } from "@/config/company";
+import { createWebPageSchema, createBreadcrumbSchema } from "@/config/schema";
 import emailjs from "@emailjs/browser";
 
 export const Route = createFileRoute("/contact")({
@@ -62,79 +63,37 @@ export const Route = createFileRoute("/contact")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@graph": [
-            {
-              "@type": "ContactPage",
-              "@id": "https://milestoneconsultancy.in/contact#contact-page",
+            createWebPageSchema({
+              id: "contact",
               url: "https://milestoneconsultancy.in/contact",
               name: `Contact | ${company.name} - Project Management Consultancy`,
-              description: `Contact Milestone Consultancy, a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra. Phone: ${company.contact.phone}. Email: ${company.contact.email}.`,
-              inLanguage: "en-IN",
-              dateModified: "2026-08-06",
-              isPartOf: {
-                "@id": "https://milestoneconsultancy.in#website",
-              },
-              about: {
-                "@id": "https://milestoneconsultancy.in#organization",
-              },
-              publisher: {
-                "@id": "https://milestoneconsultancy.in#organization",
-              },
-              primaryImageOfPage: {
-                "@type": "ImageObject",
-                url: "https://milestoneconsultancy.in/milestone-logo.jpeg",
-                width: 1200,
-                height: 630,
-              },
-              breadcrumb: {
-                "@type": "BreadcrumbList",
-                itemListElement: [
-                  {
-                    "@type": "ListItem",
-                    position: 1,
-                    name: "Home",
-                    item: "https://milestoneconsultancy.in",
-                  },
-                  {
-                    "@type": "ListItem",
-                    position: 2,
-                    name: "Contact",
-                    item: "https://milestoneconsultancy.in/contact",
-                  },
-                ],
-              },
-              mainEntity: {
-                "@type": "ContactPoint",
-                telephone: company.contact.phone,
-                email: company.contact.email,
-                contactType: "sales",
-                availableLanguage: ["English", "Hindi", "Marathi"],
-                areaServed: "IN",
-              },
-            },
+              description: `Contact ${company.name}, a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra. Phone: ${company.contact.phone}. Email: ${company.contact.email}.`,
+              type: "ContactPage",
+            }),
+
+            createBreadcrumbSchema(
+              "https://milestoneconsultancy.in/contact",
+              [
+                {
+                  name: "Home",
+                  item: "https://milestoneconsultancy.in",
+                },
+                {
+                  name: "Contact",
+                  item: "https://milestoneconsultancy.in/contact",
+                },
+              ],
+            ),
+
             {
               "@type": "ContactPoint",
               "@id": "https://milestoneconsultancy.in#contact-point",
               telephone: company.contact.phone,
               email: company.contact.email,
-              contactType: "sales",
+              contactType: "customer service",
               availableLanguage: ["English", "Hindi", "Marathi"],
               areaServed: "IN",
-            },
-            {
-              "@type": "WebPage",
-              "@id": "https://milestoneconsultancy.in/contact#webpage",
               url: "https://milestoneconsultancy.in/contact",
-              name: `Contact | ${company.name} - Project Management Consultancy`,
-              description: `Contact Milestone Consultancy, a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra. Phone: ${company.contact.phone}. Email: ${company.contact.email}.`,
-              isPartOf: {
-                "@id": "https://milestoneconsultancy.in#website",
-              },
-              about: {
-                "@id": "https://milestoneconsultancy.in#organization",
-              },
-              publisher: {
-                "@id": "https://milestoneconsultancy.in#organization",
-              },
             },
           ],
         }),

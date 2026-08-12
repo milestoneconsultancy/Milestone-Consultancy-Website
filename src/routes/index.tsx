@@ -14,6 +14,7 @@ import { SectionHeader } from "@/components/sections/SectionHeader";
 import { Button } from "@/components/ui/button";
 import { services } from "@/config/services";
 import { company } from "@/config/company";
+import { createWebPageSchema, createBreadcrumbSchema, siteUrl } from "@/config/schema";
 import heroImage from "@/assets/hero-infrastructure.jpg";
 import aboutImage from "@/assets/about-engineer.jpg";
 
@@ -120,55 +121,21 @@ export const Route = createFileRoute("/")({
         type: "application/ld+json",
         children: JSON.stringify({
           "@context": "https://schema.org",
-          "@type": "WebPage",
-          "@id": "https://milestoneconsultancy.in#webpage",
-          url: "https://milestoneconsultancy.in",
-          name: `${company.name} | Project Management Consultancy in Kalyan, Maharashtra`,
-          description:
-            "Milestone Consultancy is a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra, providing civil engineering, construction management, highway engineering, infrastructure consultancy, and quality assurance services for government and private projects across the Mumbai Metropolitan Region.",
-          isPartOf: {
-            "@id": "https://milestoneconsultancy.in#website",
-          },
-          about: {
-            "@id": "https://milestoneconsultancy.in#organization",
-          },
-          primaryImageOfPage: {
-            "@type": "ImageObject",
-            url: "https://milestoneconsultancy.in/milestone-logo.jpeg",
-            width: 1200,
-            height: 630,
-          },
-          breadcrumb: {
-            "@type": "BreadcrumbList",
-            itemListElement: [
+          "@graph": [
+            createWebPageSchema({
+              id: "home",
+              url: siteUrl,
+              name: `${company.name} | Project Management Consultancy in Kalyan, Maharashtra`,
+              description:
+                "Milestone Consultancy is a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra, providing civil engineering, construction management, highway engineering, infrastructure consultancy, and quality assurance services for government and private projects across the Mumbai Metropolitan Region.",
+            }),
+            createBreadcrumbSchema(siteUrl, [
               {
-                "@type": "ListItem",
-                position: 1,
                 name: "Home",
-                item: "https://milestoneconsultancy.in",
+                item: siteUrl,
               },
-            ],
-          },
-          mainEntity: {
-            "@type": "ProfessionalService",
-            "@id":
-              "https://milestoneconsultancy.in#professional-service",
-            name: company.name,
-            description:
-              "Milestone Consultancy is a project management consultancy and engineering consultancy firm in Kalyan, Maharashtra, providing civil engineering, construction management, highway engineering, infrastructure consultancy, and quality assurance services for government and private projects across the Mumbai Metropolitan Region.",
-            url: "https://milestoneconsultancy.in",
-            telephone: company.contact.phone,
-            email: company.contact.email,
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "Kalyan West",
-              addressRegion: "Maharashtra",
-              postalCode: "421301",
-              addressCountry: "IN",
-            },
-            priceRange: "₹₹",
-            areaServed: "IN",
-          },
+            ]),
+          ],
         }),
       },
     ],
@@ -241,7 +208,7 @@ function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-r from-[color:var(--color-brand-navy)]/90 via-[color:var(--color-brand-navy)]/75 to-[color:var(--color-brand-navy)]/30" />
         </div>
 
-        <div className="container-page min-h-[90vh] flex items-center py-12">
+        <div className="container-page min-h-[92vh] flex items-center py-28">
           <div className="max-w-3xl text-white">
             <motion.span
               data-aos="fade-up"

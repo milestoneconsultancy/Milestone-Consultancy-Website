@@ -15,6 +15,7 @@ import {
   Loader2
 } from "lucide-react";
 import { company } from "@/config/company";
+import { createWebPageSchema, createBreadcrumbSchema } from "@/config/schema";
 
 export const Route = createFileRoute("/projects")({
   head: () => ({
@@ -76,97 +77,28 @@ export const Route = createFileRoute("/projects")({
         children: JSON.stringify({
           "@context": "https://schema.org",
           "@graph": [
-            {
-              "@type": "CollectionPage",
-              "@id": "https://milestoneconsultancy.in/projects#collection-page",
+            createWebPageSchema({
+              id: "projects",
               url: "https://milestoneconsultancy.in/projects",
               name: `Projects | ${company.name} - Engineering & Infrastructure Project Management`,
-              description: "Explore Milestone Consultancy's project management consultancy projects including highway engineering, infrastructure development, and building construction projects across Maharashtra and India.",
-              isPartOf: {
-                "@id": "https://milestoneconsultancy.in#website",
-              },
-              about: {
-                "@id": "https://milestoneconsultancy.in#organization",
-              },
-              publisher: {
-                "@id": "https://milestoneconsultancy.in#organization",
-              },
-              breadcrumb: {
-                "@type": "BreadcrumbList",
-                itemListElement: [
-                  {
-                    "@type": "ListItem",
-                    position: 1,
-                    name: "Home",
-                    item: "https://milestoneconsultancy.in",
-                  },
-                  {
-                    "@type": "ListItem",
-                    position: 2,
-                    name: "Projects",
-                    item: "https://milestoneconsultancy.in/projects",
-                  },
-                ],
-              },
-              ...(projects.length > 0 ? {
-                mainEntity: {
-                  "@type": "ItemList",
-                  itemListElement: projects.map((project, index) => ({
-                    "@type": "ListItem",
-                    position: index + 1,
-                    item: {
-                      "@type": "CreativeWork",
-                      name: project.title,
-                      description: project.description,
-                      url: `https://milestoneconsultancy.in/projects/${project.id}`,
-                      ...(project.location && {
-                        spatialCoverage: {
-                          "@type": "Place",
-                          name: project.location,
-                        },
-                      }),
-                    },
-                  })),
-                  numberOfItems: projects.length,
+              description:
+                "Explore Milestone Consultancy's project management consultancy projects including highway engineering, infrastructure development, and building construction projects across Maharashtra and India.",
+              type: "CollectionPage",
+            }),
+
+            createBreadcrumbSchema(
+              "https://milestoneconsultancy.in/projects",
+              [
+                {
+                  name: "Home",
+                  item: "https://milestoneconsultancy.in",
                 },
-              } : {}),
-            },
-            ...(projects.length > 0 ? [{
-              "@type": "ItemList",
-              "@id": "https://milestoneconsultancy.in/projects#projects-list",
-              name: "Milestone Consultancy Projects",
-              description: "Project management and engineering consultancy projects delivered across infrastructure, highway, and building sectors.",
-              itemListElement: projects.map((project, index) => ({
-                "@type": "ListItem",
-                position: index + 1,
-                item: {
-                  "@type": "Project",
-                  name: project.title,
-                  description: project.description,
-                  url: `https://milestoneconsultancy.in/projects/${project.id}`,
-                  status: project.status === "completed" ? "Completed" : 
-                          project.status === "ongoing" ? "InProgress" : 
-                          "Pending",
-                  ...(project.location && {
-                    locationCreated: {
-                      "@type": "Place",
-                      name: project.location,
-                    },
-                  }),
-                  funder: {
-                    "@type": "Organization",
-                    name: company.name,
-                  },
+                {
+                  name: "Projects",
+                  item: "https://milestoneconsultancy.in/projects",
                 },
-              })),
-              numberOfItems: projects.length,
-            }] : [{
-              "@type": "CollectionPage",
-              "@id": "https://milestoneconsultancy.in/projects#collection-page",
-              url: "https://milestoneconsultancy.in/projects",
-              name: `Projects | ${company.name} - Engineering & Infrastructure Project Management`,
-              description: "Projects coming soon. Milestone Consultancy is currently working on exciting infrastructure, highway, and building projects.",
-            }]),
+              ],
+            ),
           ],
         }),
       },
