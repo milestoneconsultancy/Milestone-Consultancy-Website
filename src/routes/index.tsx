@@ -241,7 +241,7 @@ function HomePage() {
           <div className="absolute inset-0 bg-gradient-to-r from-[color:var(--color-brand-navy)]/90 via-[color:var(--color-brand-navy)]/75 to-[color:var(--color-brand-navy)]/30" />
         </div>
 
-        <div className="container-page min-h-[92vh] flex items-center py-28">
+        <div className="container-page min-h-[90vh] flex items-center py-12">
           <div className="max-w-3xl text-white">
             <motion.span
               data-aos="fade-up"
