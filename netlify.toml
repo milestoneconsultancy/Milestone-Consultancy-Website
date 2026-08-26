@@ -2,13 +2,23 @@
   command = "npm run build"
   publish = "dist"
 
+
 [[redirects]]
   from = "/api/*"
   to = "https://script.google.com/macros/s/AKfycbwKaMBaKAO1iRThFnw71wynNrNKo7_YagjEFM1jsf9ikvWytz297ab7hjqVsNH6ZzBl/exec/:splat"
   status = 200
   force = true
 
+
+[[redirects]]
+  from = "/employee"
+  to = "https://script.google.com/macros/s/AKfycbzENRFrYhsBH_EUPlY-oZvlVRtRbGPU_dqc-uoamyjYTaXG_khPG65AO2Cem0gDRxAL/exec"
+  status = 200
+  force = true
+
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  force = true
